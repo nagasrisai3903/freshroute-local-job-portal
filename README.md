@@ -45,36 +45,98 @@ The platform focuses on Python, Django, SQL, React, Frontend, and full-stack fre
 ### Django REST API
 ![Jobs API](assets/screenshots/08-api-jobs.png)
 
-## Execution Flow
+## Project Execution
 
-1. Recruiter or admin can manually post fresher jobs using the Post Job form.
-2. The Local Fresher Job Importer adds Hyderabad and Bangalore entry-level jobs into the database.
-3. Candidates can search jobs by title, company, or skills.
-4. Candidates can filter jobs by city and category.
-5. Candidates can view complete job details.
-6. Imported jobs redirect users to external apply links.
-7. Manual jobs support internal Apply Now flow.
-8. Applied jobs are tracked in the My Applications section using localStorage.
+### 1. Start Backend Server
 
-## Tech Stack
+```bash
+cd backend
+venv\Scripts\activate
+python manage.py runserver
+```
 
-### Frontend
-- React.js
-- JavaScript
-- CSS
-- Vite
+Backend runs at:
 
-### Backend
-- Python
-- Django
-- Django REST Framework
-- SQLite
+```text
+http://127.0.0.1:8000/
+```
 
-## API Testing
+### 2. Start Frontend Server
 
-The backend APIs can be tested using Django REST Framework or Postman.
+Open another terminal:
 
-### Get all jobs
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend runs at:
+
+```text
+http://localhost:5173/
+```
+
+### 3. Import Local Fresher Jobs
+
+Click the **Import Local Fresher Jobs** button.
+
+This imports Hyderabad and Bangalore entry-level jobs into the database.
+
+Backend API used:
 
 ```http
-GET http://127.0.0.1:8000/api/jobs/
+POST http://127.0.0.1:8000/api/jobs/import/freshroute/
+```
+
+### 4. Search and Filter Jobs
+
+Users can search jobs by:
+
+- Python
+- Django
+- SQL
+- React
+- Frontend
+- Company name
+
+Users can filter jobs by:
+
+- Hyderabad
+- Bangalore
+- Python
+- Django
+- SQL
+- React
+- Frontend
+
+### 5. View Job Details
+
+Click **View Details** to see complete job information, required skills, salary, location, experience, and apply option.
+
+### 6. Apply for Jobs
+
+For imported jobs, **Apply on Source** redirects to the original job source.
+
+For manually posted jobs, **Apply Now** stores the application in My Applications.
+
+### 7. Recruiter Manual Job Posting
+
+Click **Post Job** to manually add Hyderabad or Bangalore fresher job openings.
+
+### 8. Track Applications
+
+Click **My Applications** to view applied jobs and their status.
+
+## Demo Workflow
+
+1. Run Django backend server.
+2. Run React frontend server.
+3. Open FreshRoute in the browser.
+4. Click **Import Local Fresher Jobs**.
+5. View imported Hyderabad and Bangalore fresher jobs.
+6. Use search and filters to find Python, SQL, React, Django, or Frontend jobs.
+7. Open job details using **View Details**.
+8. Apply using **Apply on Source** or **Apply Now**.
+9. Track applied jobs in **My Applications**.
+10. Recruiters can add new jobs using **Post Job**.
